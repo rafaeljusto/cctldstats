@@ -6,15 +6,13 @@ Project developed to allow exporting public ccTLD statistics in a common format.
 Protocol
 --------
 
-For now there's only service defined to retrieve the number of registered domains.
+For now there's only one service defined to retrieve the number of registered domains. To retrieve it just send a HTTP `GET` to `/domain/registered`. The response will be something like:
 
-  GET /domain/registered
-
-    ```json
-    {
-      "number": 400000
-    }
-    ```
+```json
+{
+  "number": 400000
+}
+```
 
 **Possible HTTP codes:** 200 (OK), 401 (Forbidden), 500 (Internal Server Error)
 
