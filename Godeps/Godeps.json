@@ -1,0 +1,30 @@
+{
+	"ImportPath": "github.com/rafaeljusto/cctldstats",
+	"GoVersion": "go1.7",
+	"GodepVersion": "v74",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/go-sql-driver/mysql",
+			"Comment": "v1.2-198-g0b58b37",
+			"Rev": "0b58b37b664c21f3010e836f1b931e1d0b0b0685"
+		},
+		{
+			"ImportPath": "github.com/kelseyhightower/envconfig",
+			"Comment": "1.1.0-27-g1e29157",
+			"Rev": "1e291572dcb9ba673cdcdb15e0f422702415ebaf"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "go1.0-cutoff-111-g80f8150",
+			"Rev": "80f8150043c80fb52dee6bc863a709cdac7ec8f8"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/oid",
+			"Comment": "go1.0-cutoff-111-g80f8150",
+			"Rev": "80f8150043c80fb52dee6bc863a709cdac7ec8f8"
+		}
+	]
+}
