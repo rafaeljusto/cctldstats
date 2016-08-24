@@ -1,7 +1,9 @@
 package config
 
 import (
+	"errors"
 	"net"
+	"strings"
 
 	"github.com/kelseyhightower/envconfig"
 )
@@ -45,5 +47,16 @@ func Load() error {
 	CCTLDStats.Database.Host = "localhost"
 	CCTLDStats.DomainTableName = "domain"
 	CCTLDStats.ACL = []net.IP{net.ParseIP("127.0.0.1")}
-	return envconfig.Process(prefix, CCTLDStats)
+
+	if err := envconfig.Process(prefix, CCTLDStats); err != nil {
+		return err
+	}
+
+	// safety check to avoid wrongly setting the domain table name (SQL injection)
+	CCTLDStats.DomainTableName = strings.TrimSpace(CCTLDStats.DomainTableName)
+	if CCTLDStats.DomainTableName == "" || len(strings.Split(CCTLDStats.DomainTableName, " ")) != 1 {
+		return errors.New("Did you configured the domain table name correctly?")
+	}
+
+	return nil
 }
