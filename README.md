@@ -1,7 +1,22 @@
 cctldstats
 ==========
 
-Project developed to allow exporting public ccTLD statistics in a common format.
+Project developed to allow exporting public ccTLD statistics in a common format. The idea is to create a system that will query this service in all ccTLDs so we can store the number of domains history for further studies.
+
+Protocol
+--------
+
+For now there's only service defined to retrieve the number of registered domains.
+
+  GET /domain/registered
+
+    ```json
+    {
+      "number": 400000
+    }
+    ```
+
+**Possible HTTP codes:** 200 (OK), 401 (Forbidden), 500 (Internal Server Error)
 
 How to use it
 -------------
