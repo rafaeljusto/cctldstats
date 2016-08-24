@@ -39,4 +39,9 @@ Now you can get it running, just set some environment variables that are require
   CCTLDSTATS_DOMAIN_TABLE_NAME | Name of the table that contain the domains
   CCTLDSTATS_ACL               | Allowed IP address separated by comma
 
-You're good to go! Some logs will be printed on the standard output.
+You're good to go! The server runs on port 8888. Logs will be printed on the standard output.
+
+Testing
+-------
+
+    curl -i http://localhost:8888/domains/registered
