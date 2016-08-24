@@ -23,6 +23,7 @@ func registeredDomains(w http.ResponseWriter, r *http.Request) {
 
 	remoteAddr := net.ParseIP(host)
 	if remoteAddr == nil {
+		log.Printf("Invalid host %s", host)
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
@@ -36,6 +37,7 @@ func registeredDomains(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !grant {
+		log.Printf("IP %s is not authorized", remoteAddr)
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
