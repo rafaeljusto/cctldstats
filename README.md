@@ -35,8 +35,8 @@ Now you can get it running, just set some environment variables that are require
   CCTLDSTATS_DATABASE_NAME     | Database name
   CCTLDSTATS_DATABASE_USERNAME | Database username
   CCTLDSTATS_DATABASE_PASSWORD | Database password
-  CCTLDSTATS_DATABASE_HOST     | Database host
+  CCTLDSTATS_DATABASE_HOST     | Database host with port (127.0.0.1:3306)
   CCTLDSTATS_DOMAIN_TABLE_NAME | Name of the table that contain the domains
   CCTLDSTATS_ACL               | Allowed IP address separated by comma
 
-You're good to go!
+You're good to go! Some logs will be printed on the standard output.

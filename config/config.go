@@ -44,7 +44,7 @@ type cctldstatsConfig struct {
 func Load() error {
 	CCTLDStats = new(cctldstatsConfig)
 	CCTLDStats.Database.Kind = "mysql"
-	CCTLDStats.Database.Host = "localhost"
+	CCTLDStats.Database.Host = "localhost:3306"
 	CCTLDStats.DomainTableName = "domain"
 	CCTLDStats.ACL = []net.IP{net.ParseIP("127.0.0.1"), net.ParseIP("::1")}
 

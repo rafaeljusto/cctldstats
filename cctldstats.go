@@ -12,11 +12,11 @@ import (
 
 func main() {
 	if err := config.Load(); err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error initializing configuration. Details: %s", err)
 	}
 
 	if err := db.Connect(); err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error initializing the database connection. Details: %s", err)
 	}
 
 	http.Handle("/domains/registered", http.HandlerFunc(registeredDomains))

@@ -16,7 +16,7 @@ func registeredDomains(w http.ResponseWriter, r *http.Request) {
 
 	host, _, err := net.SplitHostPort(r.RemoteAddr)
 	if err != nil {
-		log.Println(err)
+		log.Printf("Error parsing the remote address. Details: %s", err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -45,14 +45,14 @@ func registeredDomains(w http.ResponseWriter, r *http.Request) {
 
 	var rdr RegisteredDomainsResponse
 	if err = row.Scan(&rdr.Number); err != nil {
-		log.Println(err)
+		log.Printf("Error retrieving the information from the database. Details: %s", err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
 	output, err := json.Marshal(rdr)
 	if err != nil {
-		log.Println(err)
+		log.Printf("Error encoding the response into JSON. Details: %s", err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
