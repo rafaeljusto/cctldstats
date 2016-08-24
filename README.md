@@ -12,18 +12,18 @@ Now you will need to setup the Go project structure and set the GOPATH environme
 
 Build the project with following line:
 
-  go get -u github.com/rafaeljusto/cctldstats
+    go get -u github.com/rafaeljusto/cctldstats
 
 Now you can get it running, just set some environment variables that are requirements:
 
-  | Environment Variable         | Explanation                                |
-  | ---------------------------- | ------------------------------------------ |
-  | CCTLDSTATS_DATABASE_KIND     | Database type: "mysql" or "postgres"       |
-  | CCTLDSTATS_DATABASE_NAME     | Database name                              |
-  | CCTLDSTATS_DATABASE_USERNAME | Database username                          |
-  | CCTLDSTATS_DATABASE_PASSWORD | Database password                          |
-  | CCTLDSTATS_DATABASE_HOST     | Database host                              |
-  | CCTLDSTATS_DOMAIN_TABLE_NAME | Name of the table that contain the domains |
-  | CCTLDSTATS_ACL               | Allowed IP address separated by comma      |
+  Environment Variable         | Explanation
+  ---------------------------- | ------------------------------------------
+  CCTLDSTATS_DATABASE_KIND     | Database type: "mysql" or "postgres"
+  CCTLDSTATS_DATABASE_NAME     | Database name
+  CCTLDSTATS_DATABASE_USERNAME | Database username
+  CCTLDSTATS_DATABASE_PASSWORD | Database password
+  CCTLDSTATS_DATABASE_HOST     | Database host
+  CCTLDSTATS_DOMAIN_TABLE_NAME | Name of the table that contain the domains
+  CCTLDSTATS_ACL               | Allowed IP address separated by comma
 
 You're good to go!
