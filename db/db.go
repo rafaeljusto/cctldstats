@@ -22,7 +22,7 @@ func Connect() (err error) {
 			config.CCTLDStats.Database.Name,
 		)
 	case "postgres":
-		connParams = fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=verify-full",
+		connParams = fmt.Sprintf("postgres://%s:%s@%s/%s",
 			config.CCTLDStats.Database.Username,
 			config.CCTLDStats.Database.Password,
 			config.CCTLDStats.Database.Host,
