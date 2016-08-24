@@ -46,7 +46,7 @@ func Load() error {
 	CCTLDStats.Database.Kind = "mysql"
 	CCTLDStats.Database.Host = "localhost"
 	CCTLDStats.DomainTableName = "domain"
-	CCTLDStats.ACL = []net.IP{net.ParseIP("127.0.0.1")}
+	CCTLDStats.ACL = []net.IP{net.ParseIP("127.0.0.1"), net.ParseIP("::1")}
 
 	if err := envconfig.Process(prefix, CCTLDStats); err != nil {
 		return err

@@ -12,7 +12,16 @@ import (
 )
 
 func registeredDomains(w http.ResponseWriter, r *http.Request) {
-	remoteAddr := net.ParseIP(r.RemoteAddr)
+	log.Printf("Received a request for registered domains from %s", r.RemoteAddr)
+
+	host, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	remoteAddr := net.ParseIP(host)
 	if remoteAddr == nil {
 		w.WriteHeader(http.StatusUnauthorized)
 		return
@@ -35,7 +44,7 @@ func registeredDomains(w http.ResponseWriter, r *http.Request) {
 	row := db.Connection.QueryRow(query)
 
 	var rdr RegisteredDomainsResponse
-	if err := row.Scan(&rdr.Number); err != nil {
+	if err = row.Scan(&rdr.Number); err != nil {
 		log.Println(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
