@@ -9,6 +9,7 @@ import (
 
 	"github.com/rafaeljusto/cctldstats/config"
 	"github.com/rafaeljusto/cctldstats/db"
+	"github.com/rafaeljusto/cctldstats/protocol"
 )
 
 func registeredDomains(w http.ResponseWriter, r *http.Request) {
@@ -45,7 +46,7 @@ func registeredDomains(w http.ResponseWriter, r *http.Request) {
 	query := fmt.Sprintf("SELECT COUNT(*) FROM %s", config.CCTLDStats.DomainTableName)
 	row := db.Connection.QueryRow(query)
 
-	var rdr RegisteredDomainsResponse
+	var rdr protocol.RegisteredDomainsResponse
 	if err = row.Scan(&rdr.Number); err != nil {
 		log.Printf("Error retrieving the information from the database. Details: %s", err)
 		w.WriteHeader(http.StatusInternalServerError)

@@ -1,4 +1,4 @@
-package main
+package protocol
 
 // RegisteredDomainsResponse store statistic information about the registered domains of the ccTLD.
 type RegisteredDomainsResponse struct {
